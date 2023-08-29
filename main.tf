@@ -29,7 +29,7 @@ data "aws_ami" "amazon-linux-2023" {
 }
 
 data "template_file" "userdata" {
-  template = file("./userdata.sh")
+  template = file("${abspath(path.module)}/userdata.sh")
   vars = {
     myserver = var.server-name
   }
